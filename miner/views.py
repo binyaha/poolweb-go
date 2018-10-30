@@ -9,4 +9,5 @@ def index(request):
 	context = {
 		'miners': miners,
 	}
-	return render(request, 'miner/index.html', context)
+	return HttpResponse("test index")
+	# return render(request, 'miner/index.html', context)
