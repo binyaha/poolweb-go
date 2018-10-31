@@ -22,4 +22,5 @@ class miner_pool(APIView):
 
 	def get(self, request):
 		miners = serializers.serialize("json",Miner.objects.all())
-		return Response(miners, status=200)
+		# return Response(miners, status=200)
+		return HttpResponse(miners, status=200)
