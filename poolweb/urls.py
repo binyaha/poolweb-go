@@ -20,4 +20,5 @@ from django.urls import path, include, re_path
 urlpatterns = [
     path('admin/', admin.site.urls),
     re_path(r'^miner/' , include('miner.urls')),
+    re_path(r'^accounts/' , include('accounts.urls')),
 ]

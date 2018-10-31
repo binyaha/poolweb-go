@@ -25,7 +25,7 @@ SECRET_KEY = 'uwtivk9#6*4jutzzwp!(7)9r@&%2vt3(y520-@a*m&fww2q8=!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['poolweb-go.herokuapp.com']
+ALLOWED_HOSTS = ['poolweb-go.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'miner',
+    'accounts',
 ]
 
 MIDDLEWARE = [
