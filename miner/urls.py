@@ -6,5 +6,6 @@ app_name = 'miner'
 
 urlpatterns = [
     re_path(r'^$', views.index, name = 'index'),
+    re_path(r'^apipool', views.miner_pool.as_view(), name='api_pool'),
     # re_path(r'^apipool', views.miner_pool.as_view(), name='api_pool'),
 ]

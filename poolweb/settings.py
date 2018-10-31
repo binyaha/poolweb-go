@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'miner',
     'accounts',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
