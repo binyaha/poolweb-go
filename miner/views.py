@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Miner, Pool, PoolMux
+from .models import Miner
+# from .models import Miner, Pool, PoolMux
 from django.contrib.auth.decorators import login_required
 from . import forms
 
