@@ -14,7 +14,9 @@
 			</li>
 		</ul>
 		<div class="articles">
-		    <h1>fefwef</h1>
+		    {% for miner in miners %}
+		        <p>{{ miner.name }}</p>
+		    {% endfor %}
 		</div>
 	</body>
 </html>
