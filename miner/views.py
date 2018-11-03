@@ -12,7 +12,7 @@ from rest_framework.response import Response
 
 @login_required(login_url="/accounts/login")
 def index(request):
-	miners = Miner.objects.filter(owner_id=request.user.id)
+	miners = Miner.objects.all()
 	context = {
 		'miners': miners,
 	}
