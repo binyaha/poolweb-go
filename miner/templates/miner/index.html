@@ -17,7 +17,7 @@
 			</li>
 		</ul>
 		<div class="articles">
-			<h1>your Id is : {{user.id}}</h1>
+			<h1>Your Id is : {{user.id}}</h1>
 		    {% for miner in miners %}
 		    	<h2><a href="{% url 'miner:detail' miner.id %}">{{ miner.name }}</a></h2>
 		        <p>{{ miner.name }}</p>
