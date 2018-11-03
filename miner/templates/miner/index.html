@@ -12,6 +12,12 @@
 					<button type="submit">Logout</button>
 				</form>
 			</li>
+			<li>
+				<form class="#" action="{% url 'miner:create' %}" method="post">
+					{% csrf_token %}
+					<button type="submit">create miner</button>
+				</form>
+			</li>
 		</ul>
 		<div class="articles">
 		    {% for miner in miners %}
