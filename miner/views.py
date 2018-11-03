@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+# from .models import Miner
 from .models import Miner, Pool, PoolMux
 from django.contrib.auth.decorators import login_required
 from . import forms
@@ -12,7 +13,7 @@ from rest_framework.response import Response
 
 @login_required(login_url="/accounts/login")
 def index(request):
-	miners = Miner.objects.all()
+	miners = Miner.objects.filter(owner_id=request.user.id)
 	context = {
 		'miners': miners,
 	}
