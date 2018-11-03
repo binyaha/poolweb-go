@@ -23,11 +23,10 @@ def index(request):
 class miner_pool(APIView):
 
 	def get(self, request):
-		para = request.GET.get('user', '')
-		miners = serializers.serialize("json",Miner.objects.all())
+		miners = Miner.objects.filter(owner_id=request.GET.get('user', ''))
+		# miners = serializers.serialize("json",Miner.objects.all())
 		# return Response(miners, status=200)
-		# return HttpResponse(miners, status=200)
-		return HttpResponse(para)
+		return HttpResponse(miners, status=200)
 
 @login_required(login_url="/accounts/login")
 def detail(request, miner_id):
