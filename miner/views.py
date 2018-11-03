@@ -16,6 +16,7 @@ def index(request):
 	miners = Miner.objects.filter(owner_id=request.user.id)
 	context = {
 		'miners': miners,
+		'user': request.user,
 	}
 	# return HttpResponse("test index")
 	return render(request, 'miner/index.html', context)
