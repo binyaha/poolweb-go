@@ -13,7 +13,7 @@
 				</form>
 			</li>
 			<li>
-				<form class="#" action="{% url 'miner:create' %}" method="post">
+				<form class="#" action="{% url 'miner:create' %}" method="get">
 					{% csrf_token %}
 					<button type="submit">create miner</button>
 				</form>
