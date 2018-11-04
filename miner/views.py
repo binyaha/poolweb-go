@@ -25,7 +25,7 @@ class miner_pool(APIView):
 
 	def get(self, request):
 		miners = Miner.objects.filter(owner_id=request.GET.get('user', ''))
-		minersjson = serializers.serialize("json",{'test': 'qweqwe'})
+		minersjson = serializers.serialize("json",miners)
 		# return Response(miners, status=200)
 		return HttpResponse(minersjson, status=200)
 
