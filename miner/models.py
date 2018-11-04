@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.core import serializers
+from rest_framework import serializers
 
 class Pool(models.Model):
 	name = models.CharField(max_length=200)
@@ -18,7 +18,7 @@ class Miner(models.Model):
 	name = models.CharField(max_length=200)
 	para1 = models.CharField(max_length=200)
 	owner = models.ForeignKey(User,on_delete=models.CASCADE,default=None)
-	pool = models .ManyToManyField(Pool, through = 'PoolMux')
+	pool = models.ManyToManyField(Pool, through = 'PoolMux')
 
 	def __str__(self):
 		return self.name
@@ -26,3 +26,9 @@ class Miner(models.Model):
 class PoolMux(models.Model):
 	miner = models.ForeignKey(Miner,on_delete=models.CASCADE,default=None)
 	pool =  models.ForeignKey(Pool,on_delete=models.CASCADE,default=None)
+
+class MinerSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Miner
+        fields = '__all__'

@@ -1,13 +1,14 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 # from .models import Miner
-from .models import Miner, Pool, PoolMux
+from .models import Miner, Pool, PoolMux, MinerSerializer
 from django.contrib.auth.decorators import login_required
 from . import forms
 
 from django.core import serializers
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.renderers import JSONRenderer
 
 # Create your views here.
 
@@ -26,8 +27,13 @@ class miner_pool(APIView):
 	def get(self, request):
 		miners = Miner.objects.filter(owner_id=request.GET.get('user', ''))
 		miners = serializers.serialize("json",Miner.objects.all())
+		#
+		queryset = Miner.objects.filter(owner_id=request.GET.get('user', ''))
+		serializer = MinerSerializer(queryset, many=True)
+		json = JSONRenderer().render(serializer.data)
+
 		# return Response(miners, status=200)
-		return HttpResponse(miners, status=200)
+		return HttpResponse(json, status=200)
 
 @login_required(login_url="/accounts/login")
 def detail(request, miner_id):
