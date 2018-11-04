@@ -21,7 +21,6 @@
 		    {% for miner in miners %}
 		    	<h2><a href="{% url 'miner:detail' miner.id %}">{{ miner.name }}</a></h2>
 		        <p>{{ miner.name }}</p>
-		        <p>{{miner.pool}}</p>
 		    {% endfor %}
 		</div>
 	</body>
