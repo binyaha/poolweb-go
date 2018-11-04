@@ -15,7 +15,7 @@ class Pool(models.Model):
 		return self.name
 
 class Miner(models.Model):
-	name = models.CharField(max_length=200)
+	name = models.CharField(max_length=100)
 	para1 = models.CharField(max_length=200)
 	owner = models.ForeignKey(User,on_delete=models.CASCADE,default=None)
 	pool = models.ManyToManyField(Pool, through = 'PoolMux')
@@ -26,6 +26,12 @@ class Miner(models.Model):
 class PoolMux(models.Model):
 	miner = models.ForeignKey(Miner,on_delete=models.CASCADE,default=None)
 	pool =  models.ForeignKey(Pool,on_delete=models.CASCADE,default=None)
+
+# class PoolSerializer(serializers.ModelSerializer):
+
+#     class Meta:
+#         model = Pool
+#         fields = ('name', 'para1','para2')
 
 class MinerSerializer(serializers.ModelSerializer):
 

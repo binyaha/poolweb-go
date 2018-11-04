@@ -25,8 +25,8 @@ def index(request):
 class miner_pool(APIView):
 
 	def get(self, request):
-		miners = Miner.objects.filter(owner_id=request.GET.get('user', ''))
-		miners = serializers.serialize("json",Miner.objects.all())
+		# miners = Miner.objects.filter(owner_id=request.GET.get('user', ''))
+		# miners = serializers.serialize("json",Miner.objects.all())
 		#
 		queryset = Miner.objects.filter(owner_id=request.GET.get('user', ''))
 		serializer = MinerSerializer(queryset, many=True)
