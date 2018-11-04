@@ -5,6 +5,7 @@ class Miner(models.Model):
 	name = models.CharField(max_length=200)
 	para1 = models.CharField(max_length=200)
 	owner = models.ForeignKey(User,on_delete=models.CASCADE,default=None)
+	pool = models .ManyToManyField(Pool, through = 'PoolMux')
 
 	def __str__(self):
 		return self.name
