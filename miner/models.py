@@ -16,7 +16,7 @@ class Pool(models.Model):
 
 class Miner(models.Model):
 	name = models.CharField(max_length=100)
-	para1 = models.CharField(max_length=200)
+	para1 = models.IntegerField(default=0)
 	owner = models.ForeignKey(User,on_delete=models.CASCADE,default=None)
 	pool = models.ManyToManyField(Pool, through = 'PoolMux')
 
