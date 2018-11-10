@@ -9,6 +9,7 @@
 		<h3>{{ machine.name }}</h3>
 		<h4>{{ machine.para1 }}</h4>
 		<form action="{% url 'miner:change' %}" method="POST" >
+			para1: <input type="text" name="para1"><br>
 			<input type="hidden" name="miner" value="{{machine.id}}">
 			{% csrf_token %}
 			<label>
