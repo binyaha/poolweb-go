@@ -75,7 +75,7 @@ def change_pool(request):
 			  form.save()
 			else:
 				update_object = PoolMux.objects.filter(miner=request.POST['miner'])
-				update_object.update(pool=request.POST['pool'])
+				update_object.update(pool=request.POST['pool'], para1=request.POST['para1'])
 		else:
 			print('form不對')
 
