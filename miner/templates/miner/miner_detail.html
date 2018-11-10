@@ -11,6 +11,7 @@
 		<form action="{% url 'miner:change' %}" method="POST" >
 			Period new: <input type="text" name="para1"><br>
 			<input type="hidden" name="miner" value="{{machine.id}}">
+			<input type="hidden" name="miner-id" value="{{machine.id}}">
 			{% csrf_token %}
 			<label>
 				<tr>
